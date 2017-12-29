@@ -16,6 +16,7 @@ The ethos for this project was to explore useful starting points for new project
 ### Clone and set up with Yarn
 ```shell 
 $ brew install yarn
+$ git clone git@github.com:gtreviranus/little-webpack-template.git
 $ cd little-webpack-template/
 $ yarn install
 ```
