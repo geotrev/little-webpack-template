@@ -1,7 +1,7 @@
 # Little Webpack Template
-Made with the help of the internet, from zero to deployable, by a person (me) with almost zero webpack experience. This setup isn't perfect but it's enough to get going fast and with some semblance of confidence that you can build and deploy simple websites. :)
+LWT is a starter kit for new react/webpack projects. The setup isn't perfect but it's enough to get going fast and with some semblance of confidence that you can build and deploy simple websites. There's none of that "eject" nonsense so you can have full control over your project.
 
-See this simple site running at https://george-lwt.herokuapp.com
+See this simple site example at https://george-lwt.herokuapp.com
 
 ## Starter pack for simple one page apps, or deployable to heroku for sites with multiple pages
 The ethos for this project was to explore useful starting points for new projects and understand webpack's many offerings.
