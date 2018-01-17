@@ -3,6 +3,7 @@ import chai, { expect } from 'chai';
 import spies from 'chai-spies';
 import chaiEnzyme from 'chai-enzyme'
 import Enzyme, { mount, shallow, render } from 'enzyme';
+import mock from 'mock-require';
 import Adapter from 'enzyme-adapter-react-16';
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -18,11 +19,24 @@ global.chai = chai;
 global.spy = chai.spy();
 
 const { JSDOM } = require('jsdom');
-const jsdom = new JSDOM('<!doctype html><html><body></body></html>');
-const { window } = jsdom;
+const dom = new JSDOM('<!doctype html><html><body></body></html>');
+const { window } = dom;
 
 global.window = window;
 global.document = window.document;
 global.navigator = {
   userAgent: 'node.js',
-};
+}
+
+function noop() { return null }
+global.window.scrollTo = noop;
+require.extensions['.md'] = noop;
+require.extensions['.scss'] = noop;
+require.extensions['.css'] = noop;
+require.extensions['.svg'] = noop;
+require.extensions['.png'] = noop;
+require.extensions['.jpg'] = noop;
+
+// webpack aliases
+mock('components', './src/components/exports.js');
+mock('pages', './src/pages/exports.js');

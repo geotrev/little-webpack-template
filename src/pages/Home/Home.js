@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
 import './Home.scss';
 
 import Intro from './Intro/Intro';
 
-export const Home = () => {
+const Home = () => {
   return (
     <div id="home">
       <div className="emoji">👋</div>
@@ -12,3 +11,5 @@ export const Home = () => {
     </div>
   );
 }
+
+export default Home;

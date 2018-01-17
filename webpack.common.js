@@ -12,23 +12,21 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx"],
     alias: {
-      'components': path.resolve(__dirname, 'src/components/components'),
-      'pages': path.resolve(__dirname, 'src/pages/pages'),
+      'components': path.resolve(__dirname, 'src/components/exports'),
+      'pages': path.resolve(__dirname, 'src/pages/exports'),
       'assets': path.resolve(__dirname, 'src/assets/'),
     }
   },
   module: {
     rules: [
-      {
-        test: /\.(js|jsx)?$/,
+      { test: /\.(js|jsx)?$/,
         exclude: /node_modules/,
         use: 'babel-loader',
       },
-      {
-        test: /\.scss$/,
+      { test: /\.scss$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: [ 
+          use: [
             {
               loader: 'css-loader',
               options: {
@@ -41,8 +39,7 @@ module.exports = {
           ],
         })
       },
-      {
-        test: /\.(jpe?g|png|gif)$/,
+      { test: /\.(jpe?g|png|gif)$/,
         use: [{
           loader: 'url-loader',
           options: {
@@ -50,8 +47,7 @@ module.exports = {
           },
         }]
       },
-      {
-        test: /\.(ico|eot|svg|ttf|woff2?|otf)$/,
+      { test: /\.(ico|eot|svg|ttf|woff2?|otf)$/,
         use: 'file-loader?name=[name].[ext]',
       },
     ]

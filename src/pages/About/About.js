@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
 import './About.scss';
 
 import Bio from './Bio/Bio';
 
-export const About = () => {
+const About = () => {
   return (
     <div id="about">
       <div className="emoji">👍</div>
@@ -12,3 +11,5 @@ export const About = () => {
     </div>
   );
 }
+
+export default About;
