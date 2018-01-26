@@ -38,5 +38,6 @@ require.extensions['.png'] = noop;
 require.extensions['.jpg'] = noop;
 
 // webpack aliases
+mock('helpers', './src/helpers/exports.js');
 mock('components', './src/components/exports.js');
 mock('pages', './src/pages/exports.js');
