@@ -3,7 +3,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const path = require('path');
 
 module.exports = {
-  entry: path.join(__dirname, 'src', 'index.js'),
+  entry: path.join(__dirname, 'src/index.js'),
   output: {
     filename: 'bundle.js',
     path: path.join(__dirname, 'build'),
@@ -39,22 +39,22 @@ module.exports = {
           ],
         })
       },
-      { test: /\.(jpe?g|png|gif)$/,
-        use: [{
-          loader: 'url-loader',
-          options: {
-            limit: 5000
-          },
-        }]
-      },
-      { test: /\.(ico|eot|svg|ttf|woff2?|otf)$/,
-        use: 'file-loader?name=[name].[ext]',
+      { test: /\.(ico|png|jpe?g|gif|eot|svg|ttf|woff2?|otf)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'assets/images/'
+            }
+          }
+        ]
       },
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'public', 'index.html')
+      template: path.join(__dirname, 'public/index.html')
     }),
     new ExtractTextPlugin("app-[contentHash].css"),
   ],

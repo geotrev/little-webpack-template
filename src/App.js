@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.scss';
-import '../public/favicon.ico';
+import './assets/favicon.ico';
 
 import { Nav } from 'components';
 import { Home, About } from 'pages';
