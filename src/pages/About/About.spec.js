@@ -6,7 +6,7 @@ describe("<About />", () => {
     expect(wrapper).to.have.id('about');
   })
 
-  it("has one .bio-wrapper (<Bio />)", () => {
+  it("has one .bio-wrapper", () => {
     const wrapper = mount(<About />);
     expect(wrapper).to.have.descendants(".bio-wrapper");
   })

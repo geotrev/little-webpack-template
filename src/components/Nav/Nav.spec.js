@@ -8,16 +8,16 @@ function NavComponent() {
 }
 
 describe("<Nav />", () => {
-  it("renders", () => {
+  it("renders component", () => {
     const wrapper = NavComponent();
     expect(wrapper).to.have.length(1);
   })
-  
+
   it("is a <nav>", () => {
     const wrapper = NavComponent();
     expect(wrapper).to.have.tagName('nav');
   })
-  
+
   it("has <a> as nav link items", () => {
     const wrapper = NavComponent();
     expect(wrapper).to.have.descendants('a');

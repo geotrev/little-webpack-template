@@ -6,8 +6,13 @@ describe("<Home />", () => {
     expect(wrapper).to.have.id('home');
   })
 
-  it("has one .intro-wrapper (<Intro />)", () => {
+  it("has an h1", () => {
     const wrapper = mount(<Home />);
-    expect(wrapper).to.have.descendants('.intro-wrapper');
+    expect(wrapper).to.have.descendants('h1');
+  })
+
+  it("has an emoji", () => {
+    const wrapper = mount(<Home />);
+    expect(wrapper).to.have.descendants('.emoji');
   })
 })

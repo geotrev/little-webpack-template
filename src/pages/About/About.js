@@ -7,7 +7,7 @@ const About = () => {
   return (
     <div id="about">
       <ScrollUpOnMount />
-      <div className="emoji">👍</div>
+      <div className="hopping emoji">👍</div>
       <Bio text="Woohoo, you did it." />
     </div>
   );

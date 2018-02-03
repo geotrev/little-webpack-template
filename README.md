@@ -1,20 +1,21 @@
 # Little Webpack Template
-LWT is a starter kit for new react/webpack projects. The setup isn't perfect but it's enough to get going fast and with some semblance of confidence that you can build and deploy simple websites. There's none of that "eject" nonsense so you can have full control over your project.
+LWT is a starter kit for new React projects. The setup isn't perfect but it's enough to get going fast and with some semblance of confidence that you can build and deploy simple websites. The project favors customization rather than convention in order to provide the most flexibility.
 
 See this simple site example at https://george-lwt.herokuapp.com
 
 ## Starter pack for simple one page apps, or deployable to heroku for sites with multiple pages
 The ethos for this project was to explore useful starting points for new projects and understand webpack's many offerings.
 
-### Development options/features
-- React with React Router v4 for views
-- SCSS (with autoprefixer) for styling
-- Build and development configurations for deployments and dev builds
-- Unit tests with mocha/chai-enzyme
-- Deployment compatibility with Heroku
+### Features/Options
+- React + React Router 4 (DOM)
+- SCSS + autoprefixing
+- Development source maps enabled
+- Production build is minified + gzipped
+- Mocha/chai-enzyme for unit tests
+- Deploys to Heroku
 
 ### Clone and set up with Yarn
-```shell 
+```shell
 $ brew install yarn
 $ git clone git@github.com:gtreviranus/little-webpack-template.git
 $ cd little-webpack-template/
@@ -41,15 +42,13 @@ $ yarn test
 $ yarn test:w
 ```
 
-### Deploy with Heroku
+### Deploy to Heroku
 ```shell
 $ heroku login
 ...
-$ heroku create
+$ heroku create REPO_NAME
 ...
 $ git push heroku master
 ...
 $ heroku open
-# or
-$ open https://some-new-url.herokuapp.com
 ```
