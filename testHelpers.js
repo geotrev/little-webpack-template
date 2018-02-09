@@ -3,7 +3,6 @@ import chai, { expect } from 'chai';
 import spies from 'chai-spies';
 import chaiEnzyme from 'chai-enzyme'
 import Enzyme, { mount, shallow, render } from 'enzyme';
-import mock from 'mock-require';
 import Adapter from 'enzyme-adapter-react-16';
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -36,8 +35,3 @@ require.extensions['.css'] = noop;
 require.extensions['.svg'] = noop;
 require.extensions['.png'] = noop;
 require.extensions['.jpg'] = noop;
-
-// webpack aliases
-mock('helpers', './src/helpers/exports.js');
-mock('components', './src/components/exports.js');
-mock('pages', './src/pages/exports.js');
