@@ -3,8 +3,7 @@ LWT is a starter kit for new React projects. The setup isn't perfect but it's en
 
 See this simple site example at https://george-lwt.herokuapp.com
 
-## Starter pack for simple one page apps, or deployable to heroku for sites with multiple pages
-The ethos for this project was to explore useful starting points for new projects and understand webpack's many offerings.
+The ethos for this project is to explore useful starting points for new projects and understand webpack's many offerings.
 
 ### Features/Options
 - React + React Router 4 (DOM)
@@ -17,7 +16,7 @@ The ethos for this project was to explore useful starting points for new project
 ### Clone and set up with Yarn
 ```shell
 $ brew install yarn
-$ git clone git@github.com:gtreviranus/little-webpack-template.git
+$ git clone git@github.com:geotrev/little-webpack-template.git
 $ cd little-webpack-template/
 $ yarn install
 ```
