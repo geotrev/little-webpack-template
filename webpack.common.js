@@ -20,7 +20,7 @@ module.exports = {
   },
   module: {
     rules: [
-      { test: /\.(js|jsx)?$/,
+      { test: /\.jsx?$/,
         exclude: /node_modules/,
         use: 'babel-loader',
       },
@@ -40,13 +40,24 @@ module.exports = {
           ],
         })
       },
-      { test: /\.(ico|png|jpe?g|gif|eot|svg|ttf|woff2?|otf)$/,
+      { test: /\.(ico|png|jpe?g|gif)$/,
         use: [
           {
             loader: 'file-loader',
             options: {
               name: '[name].[ext]',
               outputPath: 'assets/images/'
+            }
+          }
+        ]
+      },
+      { test: /\.(eot|svg|ttf|woff2?|otf)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'assets/fonts/'
             }
           }
         ]
