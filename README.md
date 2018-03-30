@@ -1,3 +1,5 @@
+[![dependencies Status](https://david-dm.org/geotrev/little-webpack-template/status.svg)](https://david-dm.org/geotrev/little-webpack-template)
+
 # Little Webpack Template
 LWT is a starter kit for new React projects. The setup isn't perfect but it's enough to get going fast and with some semblance of confidence that you can build and deploy simple websites. The project favors customization rather than convention in order to provide the most flexibility.
 
