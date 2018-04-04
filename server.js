@@ -7,10 +7,11 @@ const PORT = process.env.PORT || 3000;
 
 const expressStaticGzip = require('express-static-gzip')
 
-// Uncomment line 10, then comment out line 11 to stop gzip compression.
-
+/*
+ * Serve gzip compressed files.
+**/
 // app.use(express.static(path.join(__dirname, 'build')));
-app.use("/", expressStaticGzip("build"));
+app.use("/", expressStaticGzip("build")); 
 
 app.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, '/build/index.html'));
