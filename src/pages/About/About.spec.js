@@ -5,9 +5,14 @@ describe("<About />", () => {
     const wrapper = shallow(<About />);
     expect(wrapper).to.have.id('about');
   })
-
-  it("has one .bio-wrapper", () => {
+  
+  it("has an h1", () => {
     const wrapper = mount(<About />);
-    expect(wrapper).to.have.descendants(".bio-wrapper");
+    expect(wrapper).to.have.descendants('h1');
+  })
+
+  it("has one .emoji", () => {
+    const wrapper = mount(<About />);
+    expect(wrapper).to.have.descendants(".emoji");
   })
 })

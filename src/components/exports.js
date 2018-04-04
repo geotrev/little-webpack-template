@@ -1,5 +1,1 @@
-import Nav from './Nav/Nav';
-
-export { 
-  Nav,
-}
+export { default as Nav } from './Nav/Nav';

@@ -7,7 +7,7 @@ module.exports = merge(common, {
     contentBase: '/build/',
     publicPath: '/',
     historyApiFallback: true,
-    port: 3000,
+    port: 5500,
   },
   mode: 'development'
 });

@@ -1,12 +1,59 @@
-html { background-color: #001e38; }
-
 body {
   margin: 0;
   padding: 0;
+  font-family: sans-serif;
 }
 
 .emoji {
   display: block;
   margin: 0 auto;
   font-size: 4rem;
+}
+
+#home, #about {
+  flex: 1 1 auto;
+  max-width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  font-size: 16px;
+  text-align: center;
+  padding: 120px 20px;
+
+  .hopping {
+    animation: hop 1s alternate infinite;
+  }
+  
+  .waving {
+    animation: wave 0.75s alternate infinite;
+  }
+  
+  h1 {
+    font-weight: bold;
+    font-size: 3rem;
+  }
+
+  p {
+    font-size: 1.5rem;
+  }
+}
+
+@keyframes wave {
+  100% {
+    transform: rotate(20deg);
+  }
+}
+
+@keyframes hop {
+  0% {
+    margin: -15px 0 15px 0;
+  }
+
+  80%, 100% {
+    margin: 0;
+  }
+
+  10% {
+    margin: -15px 0 15px 0;
+  }
 }

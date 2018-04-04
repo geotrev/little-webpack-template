@@ -1,7 +1,7 @@
 {
-  "name": "Little-Webpack-Template",
+  "name": "pulsar",
   "version": "1.0.0",
-  "description": "A little boilerplate for webpack!",
+  "description": "A React starter kit built with Webpack.",
   "main": "index.js",
   "author": "George Treviranus",
   "license": "MIT",
@@ -10,7 +10,12 @@
     "test": "nyc mocha -r babel-register -r ./testHelpers.js --recursive ./src/**/*.spec.js",
     "test:w": "mocha --watch -r babel-register -r ./testHelpers.js --recursive ./src/**/*.spec.js",
     "build": "webpack --config webpack.prod.js",
-    "watch": "webpack-dev-server --config webpack.dev.js --progress --open"
+    "start": "webpack-dev-server --config webpack.dev.js --progress --open"
+  },
+  "engines": {
+    "yarn": "*",
+    "npm": ">=2.0.0",
+    "node": ">=6.11.5"
   },
   "dependencies": {
     "babel-core": "^6.26.0",
@@ -64,6 +69,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/geotrev/little-webpack-template.git"
+    "url": "git+https://github.com/geotrev/pulsar.git"
   }
 }

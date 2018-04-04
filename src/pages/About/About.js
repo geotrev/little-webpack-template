@@ -1,14 +1,14 @@
 import React from 'react';
-import './About.scss';
+// import './About.scss';
 import { ScrollUpOnMount } from 'helpers';
-import Bio from './Bio/Bio';
 
 const About = () => {
   return (
     <div id="about">
       <ScrollUpOnMount />
       <div className="hopping emoji">👍</div>
-      <Bio text="Woohoo, you did it." />
+      <h1>You found an About page!</h1>
+      <p>Woohoo, you did it.</p>
     </div>
   );
 }

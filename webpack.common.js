@@ -3,11 +3,22 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const path = require('path');
 
 module.exports = {
-  entry: path.join(__dirname, 'src/index.js'),
+  entry: {
+    main: path.join(__dirname, 'src/index.js')
+  },
   output: {
-    filename: 'bundle.js',
+    filename: '[name].[chunkhash].js',
+    chunkFilename: '[name].[chunkhash].js',
     path: path.join(__dirname, 'build'),
     publicPath: '/',
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    },
+    runtimeChunk: {
+      name: 'manifest'
+    },
   },
   resolve: {
     extensions: [".js", ".jsx"],
@@ -16,15 +27,17 @@ module.exports = {
       'components': path.resolve(__dirname, 'src/components/exports'),
       'pages': path.resolve(__dirname, 'src/pages/exports'),
       'assets': path.resolve(__dirname, 'src/assets/'),
-    }
+    },
   },
   module: {
     rules: [
-      { test: /\.jsx?$/,
+      { 
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: 'babel-loader',
       },
-      { test: /\.scss$/,
+      { 
+        test: /\.scss$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
@@ -40,24 +53,14 @@ module.exports = {
           ],
         })
       },
-      { test: /\.(ico|png|jpe?g|gif)$/,
+      { 
+        test: /\.(ico|png|jpe?g|gif|eot|svg|ttf|woff2?|otf)$/,
         use: [
           {
             loader: 'file-loader',
             options: {
               name: '[name].[ext]',
-              outputPath: 'assets/images/'
-            }
-          }
-        ]
-      },
-      { test: /\.(eot|svg|ttf|woff2?|otf)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-              outputPath: 'assets/fonts/'
+              outputPath: 'assets/'
             }
           }
         ]
@@ -68,9 +71,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'public/index.html')
     }),
-    new ExtractTextPlugin({
-      filename: "app-[hash].css",
-      allChunks: true,
-    }),
+    new ExtractTextPlugin({ filename: "[name].[chunkhash].css" }),
   ],
 }
