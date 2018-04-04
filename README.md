@@ -1,13 +1,11 @@
-[![dependencies Status](https://david-dm.org/geotrev/little-webpack-template/status.svg)](https://david-dm.org/geotrev/little-webpack-template)
+[![dependencies Status](https://david-dm.org/geotrev/pulsar/status.svg)](https://david-dm.org/geotrev/pulsar)
 
-# Little Webpack Template
-LWT is a starter kit for new React projects. The setup isn't perfect but it's enough to get going fast and with some semblance of confidence that you can build and deploy simple websites. The project favors customization rather than convention in order to provide the most flexibility.
+# Pulsar
+Pulsar is a starter kit for new React projects. The setup uses Webpack to hit the ground running and with some semblance of confidence that you can build and deploy multi-page websites.
 
-See this simple site example at https://george-lwt.herokuapp.com
+It includes a simple two page boilerplate to get started.
 
-The ethos for this project is to explore useful starting points for new projects and understand webpack's many offerings.
-
-### Features/Options
+## Features/Options
 - React + React Router 4 (DOM)
 - SCSS + autoprefixing
 - Development source maps enabled
@@ -17,39 +15,39 @@ The ethos for this project is to explore useful starting points for new projects
 
 ### Clone and set up with Yarn
 ```shell
-$ brew install yarn
-$ git clone git@github.com:geotrev/little-webpack-template.git
-$ cd little-webpack-template/
-$ yarn install
+$ git clone git@github.com:geotrev/pulsar.git PROJECT_NAME
+$ cd PROJECT_NAME
+$ npm install
+$ npm start
 ```
 
 ### Run the dev server
 ```shell
-$ yarn watch
+$ npm start
 ```
 
 ### Make production builds
 ```shell
-$ yarn build
+$ npm run build
 ```
 
 ### Run tests with istanbul coverage
 ```shell
-$ yarn test
+$ npm run test
 ```
 
 ### Load tests on each file save/refresh
 ```shell
-$ yarn test:w
+$ npm run test:w
 ```
 
 ### Deploy to Heroku
 ```shell
 $ heroku login
-...
+...# prompts you to register if not a current user
 $ heroku create REPO_NAME
 ...
 $ git push heroku master
-...
+... # takes a moment to complete
 $ heroku open
 ```
