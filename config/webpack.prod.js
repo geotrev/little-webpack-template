@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const merge = require('webpack-merge');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin')
@@ -7,13 +6,13 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = merge(common, {
   plugins: [
+    // Clean build/ directory before running Webpack
     new CleanWebpackPlugin([ 'build' ], { verbose: true }),
+    // Uglify JS
     new UglifyJSPlugin({
       sourceMap: true
     }),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')
-    }),
+    // Create gzip compressed assets to be served by Express
     new CompressionPlugin({
       test: /\.(js|css)$/,
       algorithm: "gzip",
