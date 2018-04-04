@@ -11,7 +11,7 @@ export default class App extends Component {
     return (
       <div id="site">
         <header>
-          <Route path='/' component={ Nav } />
+          <Nav />
         </header>
         <main>
           <Switch>
