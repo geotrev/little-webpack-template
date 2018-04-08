@@ -18,5 +18,7 @@ module.exports = merge(common, {
       algorithm: "gzip",
     }),
   ],
+  // No need for log vomit on children
+  stats: { children: false },
   mode: 'production'
 });
