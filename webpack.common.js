@@ -31,12 +31,12 @@ module.exports = {
   },
   module: {
     rules: [
-      { 
+      {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         use: 'babel-loader',
       },
-      { 
+      {
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
@@ -48,12 +48,19 @@ module.exports = {
                 sourceMap: true
               }
             },
-            { loader: 'postcss-loader' },
+            {
+              loader: 'postcss-loader',
+              options: {
+                config: {
+                  path: 'config/postcss.config.js'
+                }
+              }
+            },
             { loader: 'sass-loader' }
           ],
         })
       },
-      { 
+      {
         test: /\.(ico|png|jpe?g|gif|eot|svg|ttf|woff2?|otf)$/,
         use: [
           {
