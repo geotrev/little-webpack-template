@@ -1,4 +1,4 @@
-[![dependencies Status](https://david-dm.org/geotrev/pulsar/status.svg)](https://david-dm.org/geotrev/pulsar)
+[![dependencies Status](https://david-dm.org/geotrev/pulsar/status.svg)](https://david-dm.org/geotrev/pulsar) [![CircleCI](https://circleci.com/gh/geotrev/pulsar/tree/master.svg?style=svg)](https://circleci.com/gh/geotrev/pulsar/tree/master)
 
 # Pulsar
 Pulsar is a starter kit for new React projects. The setup uses Webpack to hit the ground running and with some semblance of confidence that you can build and deploy multi-page websites.
