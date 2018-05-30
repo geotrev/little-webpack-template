@@ -1,7 +1,7 @@
 {
   "name": "pulsar",
-  "version": "1.0.0",
-  "description": "A React starter kit built with Webpack.",
+  "version": "1.0.1",
+  "description": "A React boilerplate using Webpack.",
   "main": "index.js",
   "author": "George Treviranus",
   "license": "MIT",
@@ -10,9 +10,9 @@
     "test": "nyc mocha -r babel-register -r ./config/testHelpers.js --recursive ./src/**/*.spec.js",
     "test:w": "mocha --watch -r babel-register -r ./config/testHelpers.js --recursive ./src/**/*.spec.js",
     "build": "webpack --config ./config/webpack.prod.js",
-    "start": "webpack-dev-server --config ./config/webpack.dev.js --progress --open"
+    "watch": "webpack-dev-server --config ./config/webpack.dev.js --progress --open"
   },
-  "dependencies": {
+  "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
     "babel-plugin-webpack-aliases": "^1.1.3",
