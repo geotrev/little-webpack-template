@@ -12,14 +12,6 @@ module.exports = {
     path: path.join(__dirname, 'build'),
     publicPath: '/',
   },
-  optimization: {
-    splitChunks: {
-      chunks: 'all'
-    },
-    runtimeChunk: {
-      name: 'manifest'
-    },
-  },
   resolve: {
     extensions: [".js", ".jsx"],
     alias: {
