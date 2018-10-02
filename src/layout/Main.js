@@ -1,8 +1,8 @@
-import React from 'react';
-import './Main.scss';
-import { Route, Switch } from 'react-router-dom';
-import { Nav } from 'components';
-import { Home, About } from 'pages';
+import React from "react"
+import "./Main.scss"
+import { Route, Switch } from "react-router-dom"
+import { Nav } from "components"
+import { Home, About } from "pages"
 /*
 ** ---------------------------------------------------
 **
@@ -14,8 +14,8 @@ import { Home, About } from 'pages';
 **
 ** ---------------------------------------------------
 */
-import 'assets/icons/favicon.ico';
-import 'assets/icons/favicon-32x32.png';
+import "assets/icons/favicon.ico"
+import "assets/icons/favicon-32x32.png"
 
 const Main = () => (
   <div id="site">
@@ -24,8 +24,8 @@ const Main = () => (
     </header>
     <main>
       <Switch>
-        <Route path='/about' component={ About } />
-        <Route path='/' component={ Home } />
+        <Route path="/about" component={About} />
+        <Route path="/" component={Home} />
       </Switch>
     </main>
   </div>

@@ -7,10 +7,11 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "test": "nyc mocha -r @babel/register -r ./config/testHelpers.js --recursive ./src/**/*.spec.js",
-    "test:w": "mocha --watch -r @babel/register -r ./config/testHelpers.js --recursive ./src/**/*.spec.js",
+    "watch": "webpack-dev-server --config ./config/webpack.dev.js --progress --open",
     "build": "webpack --config ./config/webpack.prod.js",
-    "watch": "webpack-dev-server --config ./config/webpack.dev.js --progress --open"
+    "lint": "prettier --write 'src/**/*.js' && prettier --write 'src/**/*.scss'",
+    "test": "nyc mocha -r @babel/register -r ./config/testHelpers.js --recursive ./src/**/*.spec.js",
+    "test:w": "mocha --watch -r @babel/register -r ./config/testHelpers.js --recursive ./src/**/*.spec.js"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
@@ -34,14 +35,16 @@
     "enzyme-adapter-react-16": "^1.1.1",
     "express": "^4.16.2",
     "express-static-gzip": "^1.1.1",
-    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^2.0.0",
     "html-webpack-plugin": "^3.1.0",
     "jsdom": "^12.0.0",
+    "mini-css-extract-plugin": "^0.4.3",
     "mocha": "^5.0.5",
     "node-sass": "^4.9.3",
     "nyc": "^13.0.1",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
     "postcss-loader": "^3.0.0",
+    "prettier": "^1.14.3",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",

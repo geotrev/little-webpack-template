@@ -1,28 +1,53 @@
-const path = require('path');
-const merge = require('webpack-merge');
-const CompressionPlugin = require('compression-webpack-plugin')
-const common = require('../webpack.common.js');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const path = require("path")
+const merge = require("webpack-merge")
+const CompressionPlugin = require("compression-webpack-plugin")
+const common = require("../webpack.common.js")
+const CleanWebpackPlugin = require("clean-webpack-plugin")
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
 module.exports = merge(common, {
   optimization: {
     splitChunks: {
-      chunks: 'all'
+      chunks: "all",
     },
     runtimeChunk: {
-      name: 'manifest'
+      name: "manifest",
     },
   },
-  plugins: [
-    // Clean build/ directory before running Webpack
-    new CleanWebpackPlugin(
-      [ '../build' ],
+  module: {
+    rules: [
       {
-        root: path.resolve(__dirname),
-        verbose: true,
-        allowExternal: true
-      }
-    ),
+        test: /\.s?css$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: "css-loader",
+            options: {
+              minimize: true,
+              sourceMap: true,
+            },
+          },
+          {
+            loader: "postcss-loader",
+            options: {
+              config: { path: "config/postcss.config.js" },
+            },
+          },
+          "sass-loader",
+        ],
+      },
+    ],
+  },
+  plugins: [
+    new OptimizeCSSAssetsPlugin(),
+
+    // Clean build/ directory before running Webpack
+    new CleanWebpackPlugin(["../build"], {
+      root: path.resolve(__dirname),
+      verbose: true,
+      allowExternal: true,
+    }),
 
     // Create gzip compressed assets to be served by Express
     new CompressionPlugin({
@@ -32,5 +57,5 @@ module.exports = merge(common, {
   ],
   // No need for log vomit
   stats: { children: false },
-  mode: 'production'
-});
+  mode: "production",
+})
