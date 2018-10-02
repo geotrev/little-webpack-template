@@ -1,6 +1,7 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const devMode = process.env.NODE_ENV !== 'production'
 
 module.exports = {
   entry: {
@@ -29,28 +30,24 @@ module.exports = {
         use: 'babel-loader',
       },
       {
-        test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                minimize: true,
-                sourceMap: true
-              }
-            },
-            {
-              loader: 'postcss-loader',
-              options: {
-                config: {
-                  path: 'config/postcss.config.js'
-                }
-              }
-            },
-            { loader: 'sass-loader' }
-          ],
-        })
+        test: /\.s?css$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              minimize: true,
+              sourceMap: true
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              config: { path: 'config/postcss.config.js' }
+            }
+          },
+          'sass-loader',
+        ]
       },
       {
         test: /\.(ico|png|jpe?g|gif|eot|svg|ttf|woff2?|otf)$/,
@@ -70,6 +67,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'public/index.html')
     }),
-    new ExtractTextPlugin({ filename: "[name].[chunkhash].css" }),
+    new MiniCssExtractPlugin({
+      filename: '[name].[hash].css',
+    })
   ],
 }

@@ -3,6 +3,8 @@ const merge = require('webpack-merge');
 const CompressionPlugin = require('compression-webpack-plugin')
 const common = require('../webpack.common.js');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = merge(common, {
   optimization: {
@@ -13,7 +15,33 @@ module.exports = merge(common, {
       name: 'manifest'
     },
   },
+  module: {
+    rules: [
+      {
+        test: /\.s?css$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              minimize: true,
+              sourceMap: true
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              config: { path: 'config/postcss.config.js' }
+            }
+          },
+          'sass-loader',
+        ]
+      },
+    ]
+  },
   plugins: [
+    new OptimizeCSSAssetsPlugin(),
+
     // Clean build/ directory before running Webpack
     new CleanWebpackPlugin(
       [ '../build' ],
