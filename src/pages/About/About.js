@@ -1,6 +1,5 @@
-import React from 'react';
-// import './About.scss';
-import { ScrollUpOnMount } from 'helpers';
+import React from "react"
+import { ScrollUpOnMount } from "helpers"
 
 const About = () => (
   <div id="about">
@@ -11,4 +10,4 @@ const About = () => (
   </div>
 )
 
-export default About;
+export default About

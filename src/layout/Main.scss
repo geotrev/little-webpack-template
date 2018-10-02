@@ -10,7 +10,8 @@ body {
   font-size: 4rem;
 }
 
-#home, #about {
+#home,
+#about {
   flex: 1 1 auto;
   max-width: 100%;
   display: flex;
@@ -23,11 +24,11 @@ body {
   .hopping {
     animation: hop 1s alternate infinite;
   }
-  
+
   .waving {
     animation: wave 0.75s alternate infinite;
   }
-  
+
   h1 {
     font-weight: bold;
     font-size: 3rem;
@@ -49,7 +50,8 @@ body {
     margin: -15px 0 15px 0;
   }
 
-  80%, 100% {
+  80%,
+  100% {
     margin: 0;
   }
 

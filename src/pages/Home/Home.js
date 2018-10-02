@@ -1,6 +1,5 @@
-import React from 'react';
-// import './Home.scss';
-import { ScrollUpOnMount } from 'helpers';
+import React from "react"
+import { ScrollUpOnMount } from "helpers"
 
 const Home = () => (
   <div id="home">
@@ -11,4 +10,4 @@ const Home = () => (
   </div>
 )
 
-export default Home;
+export default Home
