@@ -4,10 +4,9 @@ const CompressionPlugin = require("compression-webpack-plugin")
 const common = require("../webpack.common.js")
 const CleanWebpackPlugin = require("clean-webpack-plugin")
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin")
 
-module.exports = merge(common, {
+module.exports = merge(common(true), {
   optimization: {
     splitChunks: {
       chunks: "all",
@@ -24,30 +23,6 @@ module.exports = merge(common, {
     runtimeChunk: {
       name: "manifest",
     },
-  },
-  module: {
-    rules: [
-      {
-        test: /\.s?css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: "css-loader",
-            options: {
-              minimize: true,
-              sourceMap: true,
-            },
-          },
-          {
-            loader: "postcss-loader",
-            options: {
-              config: { path: "config/postcss.config.js" },
-            },
-          },
-          "sass-loader",
-        ],
-      },
-    ],
   },
   plugins: [
     // Clean build/ directory before running Webpack

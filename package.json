@@ -1,6 +1,6 @@
 {
   "name": "pulsar",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "A React boilerplate using Webpack.",
   "main": "index.js",
   "author": "George Treviranus",
@@ -8,14 +8,14 @@
   "private": false,
   "scripts": {
     "watch": "webpack-dev-server --config ./config/webpack.dev.js --progress --open",
-    "build": "webpack --config ./config/webpack.prod.js",
+    "build": "webpack --config ./config/webpack.prod.js --progress",
     "lint": "prettier --write 'src/**/*.js' && prettier --write 'src/**/*.scss'",
-    "test": "nyc mocha -r @babel/register -r ./config/testHelpers.js --recursive ./src/**/*.spec.js",
-    "test:w": "mocha --watch -r @babel/register -r ./config/testHelpers.js --recursive ./src/**/*.spec.js"
+    "test": "nyc mocha -r @babel/register -r ./config/mocha.config.js --recursive './src/**/*.spec.js'",
+    "test:w": "mocha --watch -r @babel/register -r ./config/mocha.config.js --recursive './src/**/*.spec.js'"
   },
   "devDependencies": {
-    "@babel/cli": "^7.0.0",
-    "@babel/core": "^7.0.0",
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
     "@babel/plugin-external-helpers": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
@@ -28,7 +28,7 @@
     "chai-spies": "^1.0.0",
     "cheerio": "^1.0.0-rc.2",
     "clean-webpack-plugin": "^0.1.18",
-    "compression-webpack-plugin": "^1.1.11",
+    "compression-webpack-plugin": "^2.0.0",
     "copy-webpack-plugin": "^4.5.1",
     "css-loader": "^1.0.0",
     "enzyme": "^3.2.0",
@@ -55,20 +55,6 @@
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.1",
     "webpack-merge": "^4.1.2"
-  },
-  "babel": {
-    "presets": [
-      "@babel/preset-env",
-      "@babel/preset-react"
-    ],
-    "plugins": [
-      [
-        "babel-plugin-webpack-aliases",
-        {
-          "config": "./config/webpack.dev.js"
-        }
-      ]
-    ]
   },
   "repository": {
     "type": "git",

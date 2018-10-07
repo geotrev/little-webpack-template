@@ -1,34 +1,24 @@
 import React from "react"
-import "./Main.scss"
 import { Route, Switch } from "react-router-dom"
 import { Nav } from "components"
 import { Home, About } from "pages"
-/*
-** ---------------------------------------------------
-**
-** --> PWA Icon Generator:
-**     https://app-manifest.firebaseapp.com/
-**
-** --> Favicon Generator:
-**     http://www.favicomatic.com/
-**
-** ---------------------------------------------------
-*/
-import "assets/icons/favicon.ico"
-import "assets/icons/favicon-32x32.png"
+import Routes from "routes"
 
-const Main = () => (
-  <div id="site">
-    <header>
-      <Nav />
-    </header>
-    <main>
-      <Switch>
-        <Route path="/about" component={About} />
-        <Route path="/" component={Home} />
-      </Switch>
-    </main>
-  </div>
-)
+import "./Main.scss"
+import "./assets"
 
-export default Main
+export default function Main() {
+  return (
+    <div id="site">
+      <header>
+        <Nav />
+      </header>
+      <main>
+        <Switch>
+          <Route path={Routes.about} component={About} />
+          <Route path={Routes.root} component={Home} />
+        </Switch>
+      </main>
+    </div>
+  )
+}

@@ -1,18 +1,26 @@
 import About from "./About"
 
 describe("<About />", () => {
-  it("renders #about", () => {
-    const wrapper = shallow(<About />)
-    expect(wrapper).to.have.id("about")
+  function mountComponent() {
+    return mount(<About />)
+  }
+
+  let wrapper
+
+  beforeEach(() => {
+    wrapper = mountComponent()
   })
 
-  it("has an h1", () => {
-    const wrapper = shallow(<About />)
+  it("renders", () => {
+    expect(wrapper).to.exist
+    expect(wrapper).to.have.length(1)
+  })
+
+  it("renders an h1", () => {
     expect(wrapper).to.have.descendants("h1")
   })
 
-  it("has one .emoji", () => {
-    const wrapper = shallow(<About />)
+  it("renders an .emoji", () => {
     expect(wrapper).to.have.descendants(".emoji")
   })
 })

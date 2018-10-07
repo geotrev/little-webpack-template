@@ -33,7 +33,7 @@ function noop() {
 }
 
 // Used by <ScrollUpOnMount />
-global.window.scrollTo = noop
+global.window.scrollTo = chai.spy()
 
 // Ignore anything that isn't js.
 // Add more if needed.
@@ -43,3 +43,4 @@ require.extensions[".css"] = noop
 require.extensions[".svg"] = noop
 require.extensions[".png"] = noop
 require.extensions[".jpg"] = noop
+require.extensions[".ico"] = noop
