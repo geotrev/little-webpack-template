@@ -1,28 +1,30 @@
 import Nav from "./Nav"
-import { BrowserRouter as Router, Route } from "react-router-dom"
-
-function NavComponent() {
-  return mount(
-    <Router>
-      <Nav />
-    </Router>,
-  )
-}
+import { BrowserRouter as Router, NavLink } from "react-router-dom"
 
 describe("<Nav />", () => {
-  it("renders", () => {
-    const wrapper = NavComponent()
-    expect(wrapper).to.have.length(1)
-    expect(wrapper).to.exist
+  function mountComponent() {
+    return mount(
+      <Router>
+        <Nav />
+      </Router>,
+    )
+  }
+
+  let wrapper
+  beforeEach(() => {
+    wrapper = mountComponent()
   })
 
-  it("is a <nav>", () => {
-    const wrapper = NavComponent()
+  it("renders", () => {
+    expect(wrapper).to.exist
+    expect(wrapper).to.have.length(1)
+  })
+
+  it("renders a <nav>", () => {
     expect(wrapper).to.have.tagName("nav")
   })
 
-  it("has <a> as nav link items", () => {
-    const wrapper = NavComponent()
-    expect(wrapper).to.have.descendants("a")
+  it("renders <NavLink/>s", () => {
+    expect(wrapper).to.have.descendants(NavLink)
   })
 })

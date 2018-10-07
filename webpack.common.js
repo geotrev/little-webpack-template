@@ -1,73 +1,78 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require("path")
+const HtmlWebpackPlugin = require("html-webpack-plugin")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
-module.exports = {
-  entry: {
-    main: path.resolve(__dirname, 'src/index.js')
-  },
-  output: {
-    filename: '[name].[chunkhash].js',
-    chunkFilename: '[name].[chunkhash].js',
-    path: path.resolve(__dirname, 'build'),
-    publicPath: '/',
-  },
-  resolve: {
-    extensions: [".js", ".jsx"],
-    alias: {
-      'helpers': path.resolve(__dirname, 'src/helpers/exports'),
-      'components': path.resolve(__dirname, 'src/components/exports'),
-      'pages': path.resolve(__dirname, 'src/pages/exports'),
-      'assets': path.resolve(__dirname, 'src/assets/'),
+const rootPath = __dirname
+
+module.exports = productionMode => {
+  const cssExtractMethod = productionMode ? MiniCssExtractPlugin.loader : "style-loader"
+
+  return {
+    entry: path.resolve(rootPath, "src/index.js"),
+    output: {
+      filename: "[name].[chunkhash].js",
+      chunkFilename: "[name].[chunkhash].js",
+      path: path.resolve(rootPath, "build"),
+      publicPath: "/",
     },
-  },
-  module: {
-    rules: [
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        use: 'babel-loader',
+    resolve: {
+      extensions: [".js", ".jsx"],
+      alias: {
+        routes: path.resolve(rootPath, "src/routes"),
+        helpers: path.resolve(rootPath, "src/helpers/exports"),
+        components: path.resolve(rootPath, "src/components/exports"),
+        pages: path.resolve(rootPath, "src/pages/exports"),
+        assets: path.resolve(rootPath, "src/assets/"),
       },
-      {
-        test: /\.s?css$/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              minimize: true,
-              sourceMap: true
-            }
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              config: { path: 'config/postcss.config.js' }
-            }
-          },
-          'sass-loader',
-        ]
-      },
-      {
-        test: /\.(ico|png|jpe?g|gif|eot|svg|ttf|woff2?|otf)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-              outputPath: 'assets/'
-            }
-          }
-        ]
-      },
-    ]
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'public/index.html')
-    }),
-    new MiniCssExtractPlugin({
-      filename: '[name].[chunkhash].css',
-    })
-  ],
+    },
+    module: {
+      rules: [
+        {
+          test: /\.js$/,
+          exclude: /(node_modules|bower_components)/,
+          use: "babel-loader",
+        },
+        {
+          test: /\.s?css$/,
+          use: [
+            cssExtractMethod,
+            {
+              loader: "css-loader",
+              options: {
+                minimize: true,
+                sourceMap: true,
+              },
+            },
+            {
+              loader: "postcss-loader",
+              options: {
+                config: { path: "config/postcss.config.js" },
+              },
+            },
+            "sass-loader",
+          ],
+        },
+        {
+          test: /\.(ico|png|jpe?g|gif|eot|svg|ttf|woff2?|otf)$/,
+          use: [
+            {
+              loader: "file-loader",
+              options: {
+                name: "[name].[ext]",
+                outputPath: "assets/",
+              },
+            },
+          ],
+        },
+      ],
+    },
+    plugins: [
+      new HtmlWebpackPlugin({
+        template: path.resolve(rootPath, "public/index.html"),
+      }),
+      new MiniCssExtractPlugin({
+        filename: productionMode ? "[name].[chunkhash].css" : "[name].css",
+      }),
+    ],
+  }
 }

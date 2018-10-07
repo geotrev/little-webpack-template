@@ -1,49 +1,53 @@
 [![devDependencies Status](https://david-dm.org/geotrev/pulsar/dev-status.svg)](https://david-dm.org/geotrev/pulsar) [![CircleCI](https://circleci.com/gh/geotrev/pulsar/tree/master.svg?style=svg)](https://circleci.com/gh/geotrev/pulsar/tree/master)
 
 # Pulsar
-Pulsar is a starter kit for new React projects. The setup uses Webpack to hit the ground running and with some semblance of confidence that you can build and deploy multi-page websites.
+Pulsar is a webpack-powered React starter kit for web apps.
 
-It includes a simple two page boilerplate to get started.
-
-## Features/Options
+## In the box
 - React + React Router 4 (DOM)
 - SCSS + autoprefixing
-- Development source maps enabled
 - Production build is minified + gzipped
 - Mocha/chai-enzyme for unit tests
 - Deploys to Heroku
 
-### Clone and set up with Yarn
-```shell
+### Clone and set up
+```sh
 $ git clone git@github.com:geotrev/pulsar.git PROJECT_NAME
 $ cd PROJECT_NAME
-$ npm install
+$ rm -rf .git
+$ git init
 ```
 
+Then install with npm or yarn.
+```sh
+$ npm install
+# or use yarn
+$ yarn install
+
 ### Run the dev server
-```shell
+```sh
 $ npm run watch
 ```
 
 ### Make production builds
-```shell
+```sh
 $ npm run build
 ```
 
 ### Run tests with istanbul coverage
-```shell
+```sh
 $ npm test
 ```
 
-### Load tests on each file save/refresh
-```shell
+### Run tests on each file save
+```sh
 $ npm run test:w
 ```
 
 ### Deploy to Heroku
-```shell
+```sh
 $ heroku login
-# if you don't have an account, one is created for you
+# if you don't have an account, you'll be prompted to create one
 $ heroku create REPO_NAME
 $ heroku config:set NPM_CONFIG_PRODUCTION=false YARN_PRODUCTION=false
 $ git push heroku master
