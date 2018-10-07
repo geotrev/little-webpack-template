@@ -10,8 +10,8 @@
     "watch": "webpack-dev-server --config ./config/webpack.dev.js --progress --open",
     "build": "webpack --config ./config/webpack.prod.js --progress",
     "lint": "prettier --write 'src/**/*.js' && prettier --write 'src/**/*.scss'",
-    "test": "nyc mocha -r @babel/register -r ./config/mocha.config.js --recursive ./src/**/*.spec.js",
-    "test:w": "mocha --watch -r @babel/register -r ./config/mocha.config.js --recursive ./src/**/*.spec.js"
+    "test": "nyc mocha -r @babel/register -r ./config/mocha.config.js --recursive './src/**/*.spec.js'",
+    "test:w": "mocha --watch -r @babel/register -r ./config/mocha.config.js --recursive './src/**/*.spec.js'"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.2",

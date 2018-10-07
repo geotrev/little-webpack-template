@@ -1,5 +1,6 @@
 import Main from "./Main"
-import { BrowserRouter as Router } from "react-router-dom"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import Routes from "routes"
 
 describe("<Main />", () => {
   function mountComponent() {
@@ -21,11 +22,27 @@ describe("<Main />", () => {
     expect(wrapper).to.have.length(1)
   })
 
-  it("has one header element", () => {
-    expect(wrapper).to.have.descendants("header")
+  let routingEls = { Switch, Route }
+
+  Object.keys(routingEls).forEach(routingEl => {
+    if (routingEl === "Route") {
+      it(`renders 2 Routes`, () => {
+        expect(wrapper)
+          .to.have.exactly(2)
+          .descendants(routingEls[routingEl])
+      })
+    } else {
+      it(`renders a ${routingEl}`, () => {
+        expect(wrapper).to.have.descendants(routingEls[routingEl])
+      })
+    }
   })
 
-  it("has one main element", () => {
-    expect(wrapper).to.have.descendants("main")
+  let elements = ["header", "main"]
+
+  elements.forEach(element => {
+    it(`renders a ${element}`, () => {
+      expect(wrapper).to.have.descendants(element)
+    })
   })
 })

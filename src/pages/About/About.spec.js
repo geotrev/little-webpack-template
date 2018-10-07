@@ -16,11 +16,11 @@ describe("<About />", () => {
     expect(wrapper).to.have.length(1)
   })
 
-  it("has an h1", () => {
+  it("renders an h1", () => {
     expect(wrapper).to.have.descendants("h1")
   })
 
-  it("has an emoji", () => {
+  it("renders an .emoji", () => {
     expect(wrapper).to.have.descendants(".emoji")
   })
 })

@@ -1,7 +1,7 @@
 import ScrollUpOnMount from "./ScrollUpOnMount"
 
 describe("<ScrollUpOnMount />", () => {
-  it("can mount", () => {
+  it("mounts without blowing up", () => {
     const wrapper = mount(<ScrollUpOnMount />)
     expect(wrapper).to.exist
     expect(wrapper).to.have.length(1)
