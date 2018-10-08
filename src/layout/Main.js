@@ -15,7 +15,7 @@ export default function Main() {
       </header>
       <main>
         <Switch>
-          <Route path={Routes.about} component={About} />
+          <Route path={Routes.about} render={() => <About message="Woohoo, you did it." />} />
           <Route path={Routes.root} component={Home} />
         </Switch>
       </main>
