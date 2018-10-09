@@ -4,6 +4,10 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
 const rootPath = __dirname
 
+/*
+ * @param {Boolean} productionMode - Set to "true" to enable certain production
+ *                                   settings not already assigned in config/webpack.prod.js
+*/
 module.exports = productionMode => {
   const cssExtractMethod = productionMode ? MiniCssExtractPlugin.loader : "style-loader"
 
