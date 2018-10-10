@@ -1,6 +1,5 @@
 import Main from "./Main"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-import Routes from "routes"
 
 describe("<Main />", () => {
   function mountComponent() {
