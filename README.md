@@ -25,6 +25,7 @@ Then install with npm or yarn.
 $ npm install
 # or use yarn
 $ yarn install
+```
 
 ### Run the dev server
 ```sh
@@ -55,3 +56,6 @@ $ heroku config:set NPM_CONFIG_PRODUCTION=false YARN_PRODUCTION=false
 $ git push heroku master
 $ heroku open
 ```
+
+### Optional: Create your app manifest, browserconfig, and app icons!
+Visit [favicon-generator.org](https://www.favicon-generator.org) to create your PWA assets. Add the icons to `public/static/` and the `manifest.json` + `browserconfig.xml` to `public/` alongside the main `index.html` file.
