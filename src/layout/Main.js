@@ -2,7 +2,7 @@ import React from "react"
 import { Route, Switch } from "react-router-dom"
 import { Nav } from "components"
 import { Home, About } from "pages"
-import Routes from "routes"
+import { rootPath, aboutPath } from "routes"
 import "./Main.scss"
 
 export default function Main() {
@@ -13,8 +13,8 @@ export default function Main() {
       </header>
       <main>
         <Switch>
-          <Route path={Routes.about} render={() => <About message="Woohoo, you did it." />} />
-          <Route path={Routes.root} component={Home} />
+          <Route path={aboutPath} render={() => <About message="Woohoo, you did it." />} />
+          <Route path={rootPath} component={Home} />
         </Switch>
       </main>
     </div>

@@ -1,4 +1,2 @@
-export default {
-  root: "/",
-  about: "/about",
-}
+export const rootPath = "/"
+export const aboutPath = "/about"

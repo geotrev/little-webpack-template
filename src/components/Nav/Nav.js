@@ -2,19 +2,19 @@ import React from "react"
 import { NavLink } from "react-router-dom"
 import "./Nav.scss"
 
-import Routes from "routes"
+import { rootPath, aboutPath } from "routes"
 
 export default function Nav() {
   return (
     <nav className="nav-wrapper">
       <ul>
         <li>
-          <NavLink activeClassName="selected" exact to={Routes.root}>
+          <NavLink activeClassName="selected" exact to={rootPath}>
             Home
           </NavLink>
         </li>
         <li>
-          <NavLink activeClassName="selected" exact to={Routes.about}>
+          <NavLink activeClassName="selected" exact to={aboutPath}>
             About
           </NavLink>
         </li>

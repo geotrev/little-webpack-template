@@ -1,8 +1,7 @@
 import React, { Component } from "react"
 import ReactDOM from "react-dom"
-import Main from "./layout/Main"
-
 import { BrowserRouter } from "react-router-dom"
+import Main from "./layout/Main"
 
 const dom = (
   <BrowserRouter>
