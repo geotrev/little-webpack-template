@@ -42,6 +42,16 @@ module.exports = merge(common(true), {
     // copy app manifest, browserconfig, and any static assets from public/ to build/
     new CopyWebpackPlugin([
       {
+        from: "public/manifest.json",
+        to: "manifest.json",
+        cache: true,
+      },
+      {
+        from: "public/browserconfig.xml",
+        to: "browserconfig.xml",
+        cache: true,
+      },
+      {
         from: "public/static/**/*",
         to: "assets/[name].[ext]",
         cache: true,
