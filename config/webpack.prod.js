@@ -5,6 +5,7 @@ const common = require("../webpack.common.js")
 const CleanWebpackPlugin = require("clean-webpack-plugin")
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin")
+const CopyWebpackPlugin = require("copy-webpack-plugin")
 
 module.exports = merge(common(true), {
   optimization: {
@@ -37,6 +38,15 @@ module.exports = merge(common(true), {
       test: /\.(js|css)$/,
       algorithm: "gzip",
     }),
+
+    // copy app manifest, browserconfig, and any static assets from public/ to build/
+    new CopyWebpackPlugin([
+      {
+        from: "public/static/**/*",
+        to: "assets/[name].[ext]",
+        cache: true,
+      },
+    ]),
   ],
   // No need for log vomit
   stats: { children: false },
