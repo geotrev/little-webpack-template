@@ -4,9 +4,12 @@ import Main from "./layout/Main"
 
 import { BrowserRouter } from "react-router-dom"
 
-ReactDOM.render(
+const dom = (
   <BrowserRouter>
     <Main />
-  </BrowserRouter>,
-  document.getElementById("__main__"),
+  </BrowserRouter>
 )
+
+const node = document.getElementById("__main__")
+
+ReactDOM.render(dom, node)
