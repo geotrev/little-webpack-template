@@ -3,9 +3,7 @@ import { Route, Switch } from "react-router-dom"
 import { Nav } from "components"
 import { Home, About } from "pages"
 import Routes from "routes"
-
 import "./Main.scss"
-import "./assets"
 
 export default function Main() {
   return (
