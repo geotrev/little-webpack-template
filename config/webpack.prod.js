@@ -14,12 +14,11 @@ module.exports = merge(common(true), {
     },
     minimizer: [
       new UglifyJsPlugin({
-        exclude: /\/node_modules/,
+        exclude: /\/(node_modules|bower_components)/,
         cache: true,
         parallel: true,
         sourceMap: false,
       }),
-      new OptimizeCSSAssetsPlugin(),
     ],
     runtimeChunk: {
       name: "manifest",
@@ -39,7 +38,7 @@ module.exports = merge(common(true), {
       algorithm: "gzip",
     }),
 
-    // copy app manifest, browserconfig, and any static assets from public/ to build/
+    // Copy all assets in `public/`
     new CopyWebpackPlugin([
       {
         from: "public/manifest.json",
@@ -57,6 +56,18 @@ module.exports = merge(common(true), {
         cache: true,
       },
     ]),
+
+    // Optimize CSS assets
+    new OptimizeCSSAssetsPlugin({
+      cssProcessorPluginOptions: {
+        preset: [
+          "default",
+          {
+            discardComments: { removeAll: true },
+          },
+        ],
+      },
+    }),
   ],
   // No need for log vomit
   stats: { children: false },
