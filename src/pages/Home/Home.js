@@ -1,5 +1,5 @@
 import React from "react"
-import { ScrollUpOnMount } from "helpers"
+import ScrollUpOnMount from "helpers/ScrollUpOnMount"
 
 export default function Home() {
   return (

@@ -7,10 +7,16 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin")
 const CopyWebpackPlugin = require("copy-webpack-plugin")
 
-module.exports = merge(common(true), {
+module.exports = merge(common, {
+  mode: "production",
+  devtool: "source-map",
+
   optimization: {
     splitChunks: {
       chunks: "all",
+    },
+    runtimeChunk: {
+      name: "manifest",
     },
     minimizer: [
       new UglifyJsPlugin({
@@ -20,10 +26,8 @@ module.exports = merge(common(true), {
         sourceMap: false,
       }),
     ],
-    runtimeChunk: {
-      name: "manifest",
-    },
   },
+
   plugins: [
     // Clean build/ directory before running Webpack
     new CleanWebpackPlugin(["../build"], {
@@ -69,7 +73,7 @@ module.exports = merge(common(true), {
       },
     }),
   ],
+
   // No need for log vomit
   stats: { children: false },
-  mode: "production",
 })

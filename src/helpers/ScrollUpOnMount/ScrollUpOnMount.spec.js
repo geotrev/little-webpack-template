@@ -1,5 +1,7 @@
 import ScrollUpOnMount from "./ScrollUpOnMount"
 
+global.window.scrollTo = chai.spy()
+
 describe("<ScrollUpOnMount />", () => {
   it("mounts without blowing up", () => {
     const wrapper = mount(<ScrollUpOnMount />)

@@ -1,9 +1,11 @@
 import React from "react"
 import { Route, Switch } from "react-router-dom"
-import { Nav } from "components"
-import { Home, About } from "pages"
+
 import { rootPath, aboutPath } from "routes"
-import "./Main.scss"
+import Nav from "components/Nav"
+import Home from "pages/Home"
+import About from "pages/About"
+import "./styles.scss"
 
 export default function Main() {
   return (
