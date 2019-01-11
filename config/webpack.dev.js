@@ -1,9 +1,11 @@
 const merge = require("webpack-merge")
 const common = require("../webpack.common.js")
 
-module.exports = merge(common(false), {
+module.exports = merge(common, {
+  mode: "development",
+
   // Better source maps for development
-  devtool: "inline-source-map",
+  devtool: "eval-source-map",
 
   // Set development server options
   devServer: {
@@ -12,7 +14,4 @@ module.exports = merge(common(false), {
     historyApiFallback: true,
     port: 3000,
   },
-
-  // Define environment (since Webpack 4)
-  mode: "development",
 })

@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { ScrollUpOnMount } from "helpers"
+import ScrollUpOnMount from "helpers/ScrollUpOnMount"
 
 export default function About({ message }) {
   return (

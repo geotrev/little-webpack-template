@@ -18,7 +18,7 @@ global.shallow = shallow
 global.chai = chai
 global.spy = chai.spy()
 
-// Create a simple node environment to run tests within.
+// Create a simple node document to run tests within.
 const { JSDOM } = require("jsdom")
 const dom = new JSDOM("<!doctype html><html><body></body></html>")
 const { window } = dom
@@ -31,9 +31,6 @@ global.navigator = { userAgent: "node.js" }
 function noop() {
   return null
 }
-
-// Used by <ScrollUpOnMount />
-global.window.scrollTo = chai.spy()
 
 // Ignore anything that isn't js.
 // Add more if needed.
