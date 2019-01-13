@@ -18,7 +18,6 @@ global.shallow = shallow
 global.chai = chai
 global.spy = chai.spy()
 
-// Create a simple node document to run tests within.
 const { JSDOM } = require("jsdom")
 const dom = new JSDOM("<!doctype html><html><body></body></html>")
 const { window } = dom
