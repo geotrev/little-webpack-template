@@ -15,7 +15,10 @@ module.exports = {
   resolve: {
     extensions: [".js"],
     alias: {
+      // Routing file that contains all page paths
       routes: path.resolve(rootPath, "src/routes"),
+
+      // Common folders that require imports
       helpers: path.resolve(rootPath, "src/helpers/"),
       components: path.resolve(rootPath, "src/components/"),
       pages: path.resolve(rootPath, "src/pages/"),
@@ -61,9 +64,12 @@ module.exports = {
     ],
   },
   plugins: [
+    // Output bundles to main layout file
     new HtmlWebpackPlugin({
       template: path.resolve(rootPath, "public/index.html"),
     }),
+
+    // Output main and chunked CSS files
     new MiniCssExtractPlugin({
       filename: "[name].[chunkhash].css",
     }),

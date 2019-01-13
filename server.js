@@ -1,4 +1,5 @@
-// Express server used for Heroku.
+// Express server for ndoe environments.
+// Can be used on heroku, netlify, and the like.
 
 const express = require("express")
 const path = require("path")
