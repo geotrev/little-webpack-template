@@ -42,7 +42,7 @@ module.exports = merge(common, {
       algorithm: "gzip",
     }),
 
-    // Copy all assets in `public/`
+    // Copy all assets in `public/static/`, browserconfig, and manifest
     new CopyWebpackPlugin([
       {
         from: "public/manifest.json",
