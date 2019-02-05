@@ -38,7 +38,7 @@ module.exports = merge(common, {
 
     // Create gzip compressed assets to be served by Express
     new CompressionPlugin({
-      test: /\.(js|css)$/,
+      test: /\.(js|css|html)$/,
       algorithm: "gzip",
     }),
 
@@ -57,6 +57,12 @@ module.exports = merge(common, {
       {
         from: "public/static/**/*",
         to: "assets/[name].[ext]",
+        cache: true,
+      },
+      {
+        from: "public/_redirects",
+        to: "_redirects",
+        toType: "file",
         cache: true,
       },
     ]),
