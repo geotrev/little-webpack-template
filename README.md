@@ -3,14 +3,14 @@
 [![devDependencies Status](https://david-dm.org/geotrev/pulsar/dev-status.svg)](https://david-dm.org/geotrev/pulsar) [![CircleCI](https://circleci.com/gh/geotrev/pulsar/tree/master.svg?style=svg)](https://circleci.com/gh/geotrev/pulsar/tree/master)
 
 # Pulsar
-Pulsar is a webpack-powered React starter kit for web apps.
+Pulsar is a Webpack + React starter kit for single-page web applications.
 
 ## In the box
 - React + React Router 4 (DOM)
 - SCSS + autoprefixing
 - Production build is minified + gzipped
 - Mocha/chai-enzyme for unit tests
-- Deploys to Heroku
+- Deploys to Netlify
 
 ### Clone and set up
 ```sh
@@ -26,6 +26,9 @@ $ npm install
 # or use yarn
 $ yarn install
 ```
+
+### Create your app manifest, browserconfig, and app icons!
+Visit [favicon-generator.org](https://www.favicon-generator.org) to create your PWA assets. Add the icons to `public/static/` and the `manifest.json` + `browserconfig.xml` to `public/` alongside the main `index.html` file.
 
 ### Run the dev server
 ```sh
@@ -44,18 +47,13 @@ $ npm test
 
 ### Run tests on each file save
 ```sh
-$ npm run test:w
+$ npm run test:watch
 ```
 
-### Deploy to Heroku
-```sh
-$ heroku login
-# if you don't have an account, you'll be prompted to create one
-$ heroku create REPO_NAME
-$ heroku config:set NPM_CONFIG_PRODUCTION=false YARN_PRODUCTION=false
-$ git push heroku master
-$ heroku open
-```
-
-### Optional: Create your app manifest, browserconfig, and app icons!
-Visit [favicon-generator.org](https://www.favicon-generator.org) to create your PWA assets. Add the icons to `public/static/` and the `manifest.json` + `browserconfig.xml` to `public/` alongside the main `index.html` file.
+### Deploy to Netlify
+- Go to netlify.com/
+- Log in via GitHub or GitLab (only works with these two).
+- Select repo using this set up.
+- Deploy it
+- ????
+- Profit

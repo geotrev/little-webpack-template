@@ -11,12 +11,12 @@
     "build": "webpack --config ./config/webpack.prod.js --progress",
     "lint": "prettier --write 'src/**/*.js' && prettier --write 'src/**/*.scss'",
     "test": "mocha -r @babel/register -r ./config/mocha.config.js --recursive './src/**/*.spec.js'",
-    "test:w": "mocha --watch -r @babel/register -r ./config/mocha.config.js --recursive './src/**/*.spec.js'"
+    "test:watch": "mocha --watch -r @babel/register -r ./config/mocha.config.js --recursive './src/**/*.spec.js'"
   },
   "dependencies": {
     "prop-types": "^15.6.2",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2"
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
