@@ -20,17 +20,21 @@ $ rm -rf .git
 $ git init
 ```
 
-Then install with npm or yarn.
+Then install dependencies:
 ```sh
+# Use npm
 $ npm install
-# or use yarn
+# or yarn
 $ yarn install
 ```
 
-### Create your app manifest, browserconfig, and app icons!
+## Create your app manifest, browserconfig, and app icons!
 Visit [favicon-generator.org](https://www.favicon-generator.org) to create your PWA assets. Add the icons to `public/static/` and the `manifest.json` + `browserconfig.xml` to `public/` alongside the main `index.html` file.
 
-### Run the dev server
+## Running the app
+There's just a few scripts you need to run locally, build production assets, and run tests.
+
+### Run dev server
 ```sh
 $ npm run watch
 ```
@@ -40,12 +44,12 @@ $ npm run watch
 $ npm run build
 ```
 
-### Run tests with istanbul coverage
+### Run Mocha tests
 ```sh
 $ npm test
 ```
 
-### Run tests on each file save
+### Watch tests - this will re-run all tests when files are modified
 ```sh
 $ npm run test:watch
 ```
@@ -54,6 +58,7 @@ $ npm run test:watch
 - Go to netlify.com/
 - Log in via GitHub or GitLab (only works with these two).
 - Select repo using this set up.
-- Deploy it
+- Add "npm run build" as build script
+- Add "build" as the publish directory.
 - ????
 - Profit
