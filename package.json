@@ -10,8 +10,8 @@
     "watch": "npm run lint && webpack-dev-server --config ./config/webpack.dev.js --progress --open",
     "build": "npm run lint && webpack --config ./config/webpack.prod.js --progress",
     "lint": "prettier --write 'src/**/*.js' && prettier --write 'src/**/*.scss'",
-    "test": "jest --config config/jest.config.js",
-    "test:watch": "jest --watch --config config/jest.config.js"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
@@ -31,6 +31,9 @@
     "compression-webpack-plugin": "^2.0.0",
     "copy-webpack-plugin": "^5.0.0",
     "css-loader": "^2.1.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.11.2",
+    "enzyme-to-json": "^3.3.5",
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^4.1.0",
     "eslint-plugin-react": "^7.12.4",
@@ -57,5 +60,39 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/geotrev/pulsar.git"
+  },
+  "jest": {
+    "clearMocks": true,
+    "restoreMocks": true,
+    "moduleNameMapper": {
+      "\\.(css|scss)$": "<rootDir>/config/__mocks__/emptyMock.js",
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)$": "<rootDir>/config/__mocks__/emptyMock.js",
+      "^routes/(.*?)$": "<rootDir>/src/routes/$1",
+      "^components/(.*?)$": "<rootDir>/src/components/$1",
+      "^helpers/(.*?)$": "<rootDir>/src/helpers/$1",
+      "^pages/(.*?)$": "<rootDir>/src/pages/$1",
+      "^assets/(.*?)$": "<rootDir>/src/assets/$1"
+    },
+    "roots": [
+      "<rootDir>/src/"
+    ],
+    "setupFiles": [
+      "<rootDir>/config/jest.config.js"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/*.spec.js"
+    ],
+    "testURL": "http://localhost/",
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    },
+    "unmockedModulePathPatterns": [
+      "node_modules/react/",
+      "node_modules/enzyme/"
+    ],
+    "verbose": false
   }
 }
