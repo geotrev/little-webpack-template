@@ -10,8 +10,8 @@
     "watch": "npm run lint && webpack-dev-server --config ./config/webpack.dev.js --progress --open",
     "build": "npm run lint && webpack --config ./config/webpack.prod.js --progress",
     "lint": "prettier --write 'src/**/*.js' && prettier --write 'src/**/*.scss'",
-    "test": "jest",
-    "test:watch": "jest --watch"
+    "test": "jest --config config/jest.config.js",
+    "test:watch": "jest --watch --config config/jest.config.js"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
