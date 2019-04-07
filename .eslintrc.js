@@ -28,6 +28,12 @@ module.exports = {
   globals: {
     Atomics: "readonly",
     SharedArrayBuffer: "readonly",
+
+    // tests
+    expect: "readonly",
+    render: "readonly",
+    mount: "readyonly",
+    shallow: "readyonly",
   },
   rules: {
     indent: ["error", 2],
