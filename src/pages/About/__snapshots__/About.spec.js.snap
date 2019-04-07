@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<About /> matches snapshot 1`] = `
+<About>
+  <div
+    id="about"
+  >
+    <ScrollUpOnMount />
+    <div
+      className="hopping emoji"
+    >
+      👍
+    </div>
+    <h1>
+      You found another page!
+    </h1>
+    <p />
+  </div>
+</About>
+`;
