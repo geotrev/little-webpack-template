@@ -1,47 +1,18 @@
+import React from "react"
 import Main from "./Main"
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import { BrowserRouter as Router } from "react-router-dom"
+
+jest.mock("components/Nav", () => global.simpleMock("Nav"))
+jest.mock("pages/Home", () => global.simpleMock("Home"))
+jest.mock("pages/About", () => global.simpleMock("About"))
 
 describe("<Main />", () => {
-  function mountComponent() {
-    return mount(
+  it("matches snapshot", () => {
+    const wrapper = mount(
       <Router>
         <Main />
       </Router>,
     )
-  }
-
-  let wrapper
-
-  beforeEach(() => {
-    wrapper = mountComponent()
-  })
-
-  it("renders", () => {
-    expect(wrapper).to.exist
-    expect(wrapper).to.have.length(1)
-  })
-
-  let routingEls = { Switch, Route }
-
-  Object.keys(routingEls).forEach(routingEl => {
-    if (routingEl === "Route") {
-      it(`renders 2 Routes`, () => {
-        expect(wrapper)
-          .to.have.exactly(2)
-          .descendants(routingEls[routingEl])
-      })
-    } else {
-      it(`renders a ${routingEl}`, () => {
-        expect(wrapper).to.have.descendants(routingEls[routingEl])
-      })
-    }
-  })
-
-  let elements = ["header", "main"]
-
-  elements.forEach(element => {
-    it(`renders a ${element}`, () => {
-      expect(wrapper).to.have.descendants(element)
-    })
+    expect(wrapper).toMatchSnapshot()
   })
 })

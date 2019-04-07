@@ -56,9 +56,9 @@ $ npm run test:watch
 
 ### Deploy to Netlify
 - Go to netlify.com/
-- Log in via GitHub or GitLab (only works with these two).
-- Select repo using this set up.
+- Log in via GitHub or GitLab (only works with these two)
+- Select repo using this set up
 - Add "npm run build" as build script
-- Add "build" as the publish directory.
+- Add "build" as the publish directory
 - ????
 - Profit

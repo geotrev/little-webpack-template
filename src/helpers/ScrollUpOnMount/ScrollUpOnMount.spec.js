@@ -1,16 +1,16 @@
+import React from "react"
 import ScrollUpOnMount from "./ScrollUpOnMount"
 
-global.window.scrollTo = chai.spy()
+global.scrollTo = jest.fn()
 
 describe("<ScrollUpOnMount />", () => {
-  it("mounts without blowing up", () => {
+  it("matches snapshot", () => {
     const wrapper = mount(<ScrollUpOnMount />)
-    expect(wrapper).to.exist
-    expect(wrapper).to.have.length(1)
+    expect(wrapper).toMatchSnapshot()
   })
 
-  it("calls window.scrollTo when mounted", () => {
+  it("calls scrollTo with correct values", () => {
     const wrapper = mount(<ScrollUpOnMount />)
-    expect(window.scrollTo).to.have.been.called
+    expect(window.scrollTo).toBeCalledWith(0, 0)
   })
 })
