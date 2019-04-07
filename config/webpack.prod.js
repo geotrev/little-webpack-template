@@ -1,4 +1,3 @@
-const path = require("path")
 const merge = require("webpack-merge")
 const CompressionPlugin = require("compression-webpack-plugin")
 const common = require("../webpack.common.js")
@@ -30,11 +29,7 @@ module.exports = merge(common, {
 
   plugins: [
     // Clean build/ directory before running Webpack
-    new CleanWebpackPlugin(["../build"], {
-      root: path.resolve(__dirname),
-      verbose: true,
-      allowExternal: true,
-    }),
+    new CleanWebpackPlugin(),
 
     // Create gzip compressed assets to be served by Express
     new CompressionPlugin({
