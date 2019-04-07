@@ -7,7 +7,7 @@ const config = api => {
     presets.pop()
     presets.push(["@babel/preset-env", { targets: { node: "current" } }])
 
-    // to allow webpack aliases to resolve
+    // allow webpack aliases to resolve in tests
     plugins.push(["babel-plugin-webpack-aliases", { config: "./config/webpack.dev.js" }])
   }
 
