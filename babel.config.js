@@ -1,20 +1,14 @@
-const presets = ["@babel/preset-react", "@babel/preset-env"]
-const plugins = ["@babel/plugin-proposal-class-properties"]
+let presets = ["@babel/preset-react", "@babel/preset-env"]
+let plugins = ["@babel/plugin-proposal-class-properties"]
 
-const config = api => {
+module.exports = api => {
   if (api.env("test")) {
-    // remove current instance of @babel/preset-env and add new one with targets defined
-    presets.pop()
-    presets.push(["@babel/preset-env", { targets: { node: "current" } }])
-
-    // allow webpack aliases to resolve in tests
+    presets = ["@babel/preset-react", ["@babel/preset-env", { targets: { node: "current" } }]]
     plugins.push(["babel-plugin-webpack-aliases", { config: "./config/webpack.dev.js" }])
-  }
+  } // else other env...
 
   return {
     presets,
     plugins,
   }
 }
-
-module.exports = config
