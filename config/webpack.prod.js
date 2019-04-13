@@ -4,7 +4,6 @@ const common = require("../webpack.common.js")
 const CleanWebpackPlugin = require("clean-webpack-plugin")
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin")
-const CopyWebpackPlugin = require("copy-webpack-plugin")
 
 module.exports = merge(common, {
   mode: "production",
@@ -36,25 +35,6 @@ module.exports = merge(common, {
       test: /\.(js|css|html)$/,
       algorithm: "gzip",
     }),
-
-    // Copy all assets in `public/static/`, browserconfig, and manifest
-    new CopyWebpackPlugin([
-      {
-        from: "public/manifest.json",
-        to: "manifest.json",
-        cache: true,
-      },
-      {
-        from: "public/browserconfig.xml",
-        to: "browserconfig.xml",
-        cache: true,
-      },
-      {
-        from: "public/static/**/*",
-        to: "assets/[name].[ext]",
-        cache: true,
-      },
-    ]),
 
     // Optimize CSS assets
     new OptimizeCSSAssetsPlugin({
