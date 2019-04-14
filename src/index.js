@@ -1,13 +1,12 @@
-import React from "react"
-import ReactDOM from "react-dom"
-import { BrowserRouter } from "react-router-dom"
-import Main from "./layouts/Main"
+import "core-js/features/promise"
 
-const dom = (
-  <BrowserRouter>
-    <Main />
-  </BrowserRouter>
-)
+const polyfills = []
+const modernBrowser = "fetch" in window && "assign" in Object && "forEach" in NodeList.prototype
 
-const node = document.getElementById("__main__")
-ReactDOM.render(dom, node)
+if (!modernBrowser) {
+  polyfills.push(import(/* webpackChunkName: "polyfill" */ "core-js/stable"))
+}
+
+Promise.all(polyfills)
+  .then(() => import(/* webpackChunkName: "app" */ "./app"))
+  .catch(error => console.error("Uh oh! Polyfills couldn't load!", error))
