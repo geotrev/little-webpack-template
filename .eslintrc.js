@@ -42,4 +42,10 @@ module.exports = {
     semi: ["error", "never"],
     "no-console": 0,
   },
+  settings: {
+    react: {
+      version: "detect",
+    },
+    linkComponents: [{ name: "Link", linkAttribute: "to" }],
+  },
 }
