@@ -10,7 +10,7 @@ describe("<ScrollUpOnMount />", () => {
   })
 
   it("calls scrollTo with correct values", () => {
-    const wrapper = mount(<ScrollUpOnMount />)
+    mount(<ScrollUpOnMount />)
     expect(window.scrollTo).toBeCalledWith(0, 0)
   })
 })

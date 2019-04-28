@@ -50,5 +50,5 @@ module.exports = merge(common, {
   ],
 
   // No need for log vomit
-  stats: { children: false },
+  stats: { children: false, warnings: false },
 })

@@ -7,9 +7,10 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "watch": "npm run lint && webpack-dev-server --config ./config/webpack.dev.js --progress --open",
-    "build": "npm run lint && webpack --config ./config/webpack.prod.js --progress",
-    "lint": "prettier --write 'src/**/*.js' && prettier --write 'src/**/*.scss'",
+    "watch": "webpack-dev-server --config ./config/webpack.dev.js --progress --open",
+    "build": "webpack --config ./config/webpack.prod.js --progress",
+    "lint": "eslint . --ext .js -c ./.eslintrc.js --ignore-path .eslintignore; exit 0",
+    "prettify": "prettier --write 'src/**/*.js' && prettier --write 'src/**/*.scss'",
     "test": "jest",
     "test:watch": "jest --watch"
   },
