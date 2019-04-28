@@ -9,6 +9,7 @@ global.mount = mount
 
 // Create a simple component instance with jest.mock()
 // jest.mock("./path/to/MyComponent.js", () => global.simpleMock("MyComponent"))
+/* eslint no-eval: "off" */
 global.simpleMock = mockName => {
   return eval(`const ${mockName} = props => props.children || null; ${mockName}`)
 }

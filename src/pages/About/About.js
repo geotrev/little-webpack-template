@@ -6,7 +6,9 @@ export default function About({ message }) {
   return (
     <div id="about">
       <ScrollUpOnMount />
+      {/* eslint-disable */}
       <div className="hopping emoji">👍</div>
+      {/* eslint-enable */}
       <h1>You found another page!</h1>
       <p>{message}</p>
     </div>
