@@ -8,8 +8,8 @@ export default function Home() {
       {/* eslint-disable */}
       <div className="waving emoji">👋</div>
       {/* eslint-enable */}
-      <h1>Hello there!</h1>
-      <p>This is a React starter kit built with Webpack.</p>
+      <h1>{"Hello there!"}</h1>
+      <p>{"This is a React starter kit built with Webpack."}</p>
     </div>
   )
 }
