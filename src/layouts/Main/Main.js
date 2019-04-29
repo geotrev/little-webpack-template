@@ -7,6 +7,8 @@ import Home from "pages/Home"
 import About from "pages/About"
 import "./styles.scss"
 
+const renderAbout = () => <About message="Woohoo, you did it." />
+
 export default function Main() {
   return (
     <div id="site">
@@ -15,7 +17,7 @@ export default function Main() {
       </header>
       <main>
         <Switch>
-          <Route path={aboutPath} render={() => <About message="Woohoo, you did it." />} />
+          <Route path={aboutPath} render={renderAbout} />
           <Route path={rootPath} component={Home} />
         </Switch>
       </main>

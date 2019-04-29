@@ -10,12 +10,12 @@ export default function Nav() {
       <ul>
         <li>
           <NavLink activeClassName="selected" exact to={rootPath}>
-            Home
+            {"Home"}
           </NavLink>
         </li>
         <li>
           <NavLink activeClassName="selected" exact to={aboutPath}>
-            About
+            {"About"}
           </NavLink>
         </li>
       </ul>

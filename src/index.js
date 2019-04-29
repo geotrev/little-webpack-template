@@ -9,4 +9,6 @@ if (!modernBrowser) {
 
 Promise.all(polyfills)
   .then(() => import(/* webpackChunkName: "app" */ "./app"))
-  .catch(error => console.error("Uh oh! Polyfills couldn't load!", error))
+  .catch(error => {
+    throw new Error(`Uh oh! Polyfills couldn't load! ${error}`)
+  })
