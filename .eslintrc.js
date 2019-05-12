@@ -46,11 +46,7 @@ module.exports = {
     shallow: "readyonly",
   },
   rules: {
-    // style
-    indent: [ERROR, 2],
-    "linebreak-style": [ERROR, "unix"],
-    quotes: [ERROR, "double"],
-    semi: [ERROR, NEVER],
+    // override specific ruels here for vanilla js, react, and/or jsx-a11y.
   },
   settings: {
     "import/resolver": {
