@@ -44,25 +44,25 @@ There's just a few scripts you need to run locally, build production assets, and
 ### Run dev server
 
 ```sh
-$ npm run watch
+$ yarn watch
 ```
 
 ### Make production builds
 
 ```sh
-$ npm run build
+$ yarn build
 ```
 
 ### Run Jest tests
 
 ```sh
-$ npm test
+$ yarn test
 ```
 
 ### Watch tests on file save
 
 ```sh
-$ npm run test:watch
+$ yarn test:watch
 ```
 
 ### Deploy to Netlify
