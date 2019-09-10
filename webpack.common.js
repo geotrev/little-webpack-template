@@ -6,7 +6,9 @@ const CopyWebpackPlugin = require("copy-webpack-plugin")
 const rootPath = __dirname
 
 module.exports = {
-  entry: path.resolve(rootPath, "src/index.js"),
+  entry: {
+    main: path.resolve(__dirname, "app/index.js"),
+  },
   output: {
     filename: "[name].[chunkhash].js",
     chunkFilename: "[name].[chunkhash].js",
@@ -16,14 +18,8 @@ module.exports = {
   resolve: {
     extensions: [".js"],
     alias: {
-      // Routing file that contains all page paths
-      routes: path.resolve(rootPath, "src/routes"),
-
-      // Common folders that require imports
-      helpers: path.resolve(rootPath, "src/helpers/"),
-      components: path.resolve(rootPath, "src/components/"),
-      pages: path.resolve(rootPath, "src/pages/"),
-      assets: path.resolve(rootPath, "src/assets/"),
+      root: path.resolve(__dirname),
+      app: path.resolve(__dirname, "app"),
     },
   },
   module: {
@@ -31,24 +27,27 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
-        use: "babel-loader",
+        use: "babel-loader?cacheDirectory",
       },
       {
-        test: /\.s?css$/,
+        test: /\.s?[ca]ss$/,
         use: [
           MiniCssExtractPlugin.loader,
           {
             loader: "css-loader",
-            options: { sourceMap: true },
+            options: { importLoaders: 2 },
           },
+          "postcss-loader",
           {
-            loader: "postcss-loader",
+            loader: "sass-loader?sourceMap",
             options: {
-              config: { path: "config/postcss.config.js" },
+              sassOptions: {
+                includePaths: ["src/"],
+              },
             },
           },
-          "sass-loader",
         ],
+        include: [path.resolve(__dirname, "app")],
       },
       {
         test: /\.(ico|png|jpe?g|gif|eot|svg|ttf|woff2?|otf)$/,
@@ -70,6 +69,7 @@ module.exports = {
     // Output main and chunked CSS files
     new MiniCssExtractPlugin({
       filename: "[name].[chunkhash].css",
+      chunkFilename: "[name].[contenthash].css",
     }),
 
     // Copy all assets in `public/static/`, browserconfig, and manifest

@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Home /> renders 1`] = `
+<Home>
+  <div
+    id="home"
+  >
+    <ScrollUpOnMount />
+    <span
+      aria-label="waving emoji"
+      className="waving emoji"
+      role="img"
+    >
+      👋
+    </span>
+    <h1>
+      Hello there!
+    </h1>
+    <p>
+      This is a React starter kit built with Webpack.
+    </p>
+  </div>
+</Home>
+`;

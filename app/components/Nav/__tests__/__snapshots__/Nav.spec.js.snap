@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Nav /> renders 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Nav>
+      <nav
+        className="nav-wrapper"
+      >
+        <ul>
+          <li>
+            <NavLink
+              activeClassName="selected"
+              exact={true}
+              to="/"
+            >
+              <Link
+                aria-current="page"
+                className="selected"
+                style={Object {}}
+                to="/"
+              >
+                <a
+                  aria-current="page"
+                  className="selected"
+                  href="/"
+                  onClick={[Function]}
+                  style={Object {}}
+                >
+                  Home
+                </a>
+              </Link>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              activeClassName="selected"
+              exact={true}
+              to="/about"
+            >
+              <Link
+                aria-current={null}
+                to="/about"
+              >
+                <a
+                  aria-current={null}
+                  href="/about"
+                  onClick={[Function]}
+                >
+                  About
+                </a>
+              </Link>
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
+    </Nav>
+  </Router>
+</BrowserRouter>
+`;
