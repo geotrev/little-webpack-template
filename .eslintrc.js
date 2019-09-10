@@ -1,11 +1,9 @@
 const path = require("path")
 
-const ERROR = "error"
-const NEVER = "never"
-
-const srcPath = path.resolve(__dirname, "src")
-const nodeModulesPath = path.resolve(__dirname, "node_modules")
-const webpackConfigPath = path.resolve(__dirname, "webpack.common.js")
+const READONLY = "readonly"
+const APP_PATH = path.resolve(__dirname, "app")
+const NODE_MODULES_PATH = path.resolve(__dirname, "node_modules")
+const WEBPACK_CONFIG_PATH = path.resolve(__dirname, "webpack.common.js")
 
 module.exports = {
   env: {
@@ -36,14 +34,14 @@ module.exports = {
   ],
   plugins: ["react", "jsx-a11y"],
   globals: {
-    Atomics: "readonly",
-    SharedArrayBuffer: "readonly",
+    Atomics: READONLY,
+    SharedArrayBuffer: READONLY,
 
-    // for jest tests
-    expect: "readonly",
-    render: "readonly",
-    mount: "readyonly",
-    shallow: "readyonly",
+    // Jest tests
+    expect: READONLY,
+    render: READONLY,
+    mount: READONLY,
+    shallow: READONLY,
   },
   rules: {
     // override specific ruels here for vanilla js, react, and/or jsx-a11y.
@@ -52,15 +50,13 @@ module.exports = {
     "import/resolver": {
       node: {
         extensions: [".js"],
-        paths: [srcPath],
-        moduleDirectory: [nodeModulesPath],
+        paths: [APP_PATH],
+        moduleDirectory: [NODE_MODULES_PATH],
       },
-      webpack: { config: webpackConfigPath },
+      webpack: { config: WEBPACK_CONFIG_PATH },
     },
     "import/ignore": [".(scss|less|css|md)$"],
-    react: {
-      version: "detect",
-    },
+    react: { version: "detect" },
 
     // for react-router-dom
     linkComponents: [{ name: "Link", linkAttribute: "to" }],

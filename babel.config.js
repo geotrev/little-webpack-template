@@ -1,20 +1,21 @@
-let presets = ["@babel/preset-react", "@babel/preset-env"]
-let plugins = ["@babel/plugin-proposal-class-properties", "@babel/plugin-syntax-dynamic-import"]
+const modules = {
+  react: "@babel/preset-react",
+  env: "@babel/preset-env",
+  classProperties: "@babel/plugin-proposal-class-properties",
+  syntaxDynamicImport: "@babel/plugin-syntax-dynamic-import",
+  dynamicImportNode: "dynamic-import-node",
+}
 
 module.exports = api => {
   const test = api.env("test")
+  let presets = [modules.react, modules.env]
+  let plugins = [modules.classProperties, modules.syntaxDynamicImport]
+  let ignore = []
 
   if (test) {
-    presets = ["@babel/preset-react", ["@babel/preset-env", { targets: { node: "current" } }]]
-    plugins = [
-      ...plugins,
-      "dynamic-import-node",
-      ["babel-plugin-webpack-aliases", { config: "./config/webpack.dev.js" }],
-    ]
+    presets = [modules.react, [modules.env, { targets: { node: "current" } }]]
+    plugins = [...plugins, modules.dynamicImportNode]
   }
 
-  return {
-    presets,
-    plugins,
-  }
+  return { presets, plugins, ignore }
 }

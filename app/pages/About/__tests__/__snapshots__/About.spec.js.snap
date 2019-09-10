@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<About /> renders 1`] = `
+<About>
+  <div
+    id="about"
+  >
+    <ScrollUpOnMount />
+    <span
+      aria-label="thumbs-up emoji"
+      className="hopping emoji"
+      role="img"
+    >
+      👍
+    </span>
+    <h1>
+      You found another page!
+    </h1>
+    <p />
+  </div>
+</About>
+`;
