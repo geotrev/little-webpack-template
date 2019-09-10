@@ -44,33 +44,35 @@ There's just a few scripts you need to run locally, build production assets, and
 ### Run dev server
 
 ```sh
-$ yarn watch
+$ npm run watch
 ```
 
 ### Make production builds
 
 ```sh
-$ yarn build
+$ npm run build
 ```
 
 ### Run Jest tests
 
 ```sh
-$ yarn test
+$ npm test
 ```
 
 ### Watch tests on file save
 
 ```sh
-$ yarn test:watch
+$ npm run test:watch
 ```
 
 ### Deploy to Netlify
 
 - Go to netlify.com/
-- Log in via GitHub or GitLab (only works with these two)
-- Select repo using this set up
+- Log in via GitHub or GitLab (only works with these two), or make an account and link your vendor of choice
+- Select your pulsar repo
 - Add "npm run build" as build script
 - Add "build" as the publish directory
-- ????
+- Configure for auto-deploys from master if you'd like
+- Configure a netlify.tml if you want more customization
+- ???
 - Profit
