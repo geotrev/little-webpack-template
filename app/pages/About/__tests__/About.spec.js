@@ -1,7 +1,7 @@
 import React from "react"
 import About from "../About"
 
-jest.mock("app/helpers/ScrollUpOnMount", () => global.simpleMock("ScrollUpOnMount"))
+jest.mock("app/components/ScrollUpOnMount", () => global.simpleMock("ScrollUpOnMount"))
 
 describe("<About />", () => {
   it("renders", () => {
