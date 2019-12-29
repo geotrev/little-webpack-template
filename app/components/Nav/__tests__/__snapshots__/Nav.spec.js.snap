@@ -39,17 +39,32 @@ exports[`<Nav /> renders 1`] = `
                 aria-current="page"
                 className="selected"
                 style={Object {}}
-                to="/"
+                to={
+                  Object {
+                    "hash": "",
+                    "pathname": "/",
+                    "search": "",
+                    "state": null,
+                  }
+                }
               >
-                <a
+                <LinkAnchor
                   aria-current="page"
                   className="selected"
                   href="/"
-                  onClick={[Function]}
+                  navigate={[Function]}
                   style={Object {}}
                 >
-                  Home
-                </a>
+                  <a
+                    aria-current="page"
+                    className="selected"
+                    href="/"
+                    onClick={[Function]}
+                    style={Object {}}
+                  >
+                    Home
+                  </a>
+                </LinkAnchor>
               </Link>
             </NavLink>
           </li>
@@ -61,15 +76,28 @@ exports[`<Nav /> renders 1`] = `
             >
               <Link
                 aria-current={null}
-                to="/about"
+                to={
+                  Object {
+                    "hash": "",
+                    "pathname": "/about",
+                    "search": "",
+                    "state": null,
+                  }
+                }
               >
-                <a
+                <LinkAnchor
                   aria-current={null}
                   href="/about"
-                  onClick={[Function]}
+                  navigate={[Function]}
                 >
-                  About
-                </a>
+                  <a
+                    aria-current={null}
+                    href="/about"
+                    onClick={[Function]}
+                  >
+                    About
+                  </a>
+                </LinkAnchor>
               </Link>
             </NavLink>
           </li>
