@@ -10,8 +10,8 @@ module.exports = {
     main: path.resolve(__dirname, "app/index.js"),
   },
   output: {
-    filename: "[name].[chunkhash].js",
-    chunkFilename: "[name].[chunkhash].js",
+    filename: "[name].[contenthash].js",
+    chunkFilename: "[name].[contenthash].js",
     path: path.resolve(rootPath, "build"),
     publicPath: "/",
   },
@@ -65,7 +65,10 @@ module.exports = {
         use: [
           {
             loader: "file-loader",
-            options: { name: "[name].[ext]", outputPath: "assets/" },
+            options: {
+              name: "[name].[ext]",
+              outputPath: "assets/",
+            },
           },
         ],
       },
@@ -79,7 +82,7 @@ module.exports = {
 
     // Output main and chunked CSS files
     new MiniCssExtractPlugin({
-      filename: "[name].[chunkhash].css",
+      filename: "[name].[contenthash].css",
       chunkFilename: "[name].[contenthash].css",
     }),
 

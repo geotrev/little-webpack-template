@@ -1,4 +1,4 @@
-![Undernet](github-icon.png?raw=true)
+![Undernet](bin/github-icon.png?raw=true)
 
 [![devDependencies Status](https://david-dm.org/geotrev/pulsar/dev-status.svg)](https://david-dm.org/geotrev/pulsar) [![CircleCI](https://circleci.com/gh/geotrev/pulsar/tree/master.svg?style=svg)](https://circleci.com/gh/geotrev/pulsar/tree/master)
 

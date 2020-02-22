@@ -8,7 +8,7 @@ const WEBPACK_CONFIG_PATH = path.resolve(__dirname, "webpack.common.js")
 module.exports = {
   env: {
     browser: true,
-    jest: true,
+    "jest/globals": true,
     node: true,
     commonjs: true,
     es6: true,
@@ -28,6 +28,7 @@ module.exports = {
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:jsx-a11y/strict",
+    "plugin:jest/recommended",
     "prettier",
     "prettier/react",
     "prettier/babel",
@@ -44,7 +45,7 @@ module.exports = {
     shallow: READONLY,
   },
   rules: {
-    // override specific ruels here for vanilla js, react, and/or jsx-a11y.
+    "jest/no-focused-tests": "error",
   },
   settings: {
     "import/resolver": {
