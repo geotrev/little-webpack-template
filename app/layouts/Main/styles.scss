@@ -1,7 +1,36 @@
+@keyframes wave {
+  100% {
+    transform: rotate(20deg);
+  }
+}
+
+@keyframes hop {
+  0% {
+    margin: -15px 0 15px 0;
+  }
+
+  80%,
+  100% {
+    margin: 0;
+  }
+
+  10% {
+    margin: -15px 0 15px 0;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  box-sizing: inherit;
 }
 
 .emoji {
@@ -10,8 +39,8 @@ body {
   font-size: 4rem;
 }
 
-#home,
-#about {
+#about,
+#home {
   flex: 1 1 auto;
   max-width: 100%;
   display: flex;
@@ -36,26 +65,5 @@ body {
 
   p {
     font-size: 1.5rem;
-  }
-}
-
-@keyframes wave {
-  100% {
-    transform: rotate(20deg);
-  }
-}
-
-@keyframes hop {
-  0% {
-    margin: -15px 0 15px 0;
-  }
-
-  80%,
-  100% {
-    margin: 0;
-  }
-
-  10% {
-    margin: -15px 0 15px 0;
   }
 }

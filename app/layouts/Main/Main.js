@@ -15,7 +15,7 @@ export default function Main() {
       <header>
         <Nav />
       </header>
-      <main>
+      <main id="main">
         <Switch>
           <Route path={aboutPath} render={renderAbout} />
           <Route path={rootPath} component={Home} />
