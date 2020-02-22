@@ -7,9 +7,9 @@ global.shallow = shallow
 global.render = render
 global.mount = mount
 
-// Create a simple component instance with jest.mock()
+// Creates a basic component instance
 // jest.mock("./path/to/MyComponent", () => global.simpleMock("MyComponent"))
-/* eslint no-eval: "off" */
 global.simpleMock = mockName => {
+  /* eslint no-eval: "off" */
   return eval(`const ${mockName} = props => props.children || null; ${mockName}`)
 }
