@@ -31,7 +31,9 @@ exports[`<Main /> renders 1`] = `
         <header>
           <Nav />
         </header>
-        <main>
+        <main
+          id="main"
+        >
           <Switch>
             <Route
               component={[Function]}
